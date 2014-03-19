@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3A0ADC96-D3DA-4457-8A0E-1CC8DBEA217C}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MVCApp</RootNamespace>
+    <AssemblyName>MVCApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LitJSON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.90.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SQLite.NET\bin\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AjaxResult.cs" />
+    <Compile Include="Common\Config.cs" />
+    <Compile Include="Common\JSONHelper.cs" />
+    <Compile Include="Common\Pager.cs" />
+    <Compile Include="Common\SQLiteHelper.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PhotosController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\fileupload.ashx.cs">
+      <DependentUpon>fileupload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\map_data.ashx.cs">
+      <DependentUpon>map_data.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\ExifInfo.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Photos.cs" />
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\GoogleMapHelper.cs" />
+    <Compile Include="Utility\ImageHelper.cs" />
+    <Compile Include="Utility\NetHelper.cs" />
+    <Compile Include="Views\Shared\Manage.Master.cs">
+      <DependentUpon>Manage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Manage.Master.designer.cs">
+      <DependentUpon>Manage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Assets\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Assets\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Assets\bootstrap\css\bootstrap.css" />
+    <Content Include="Assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assets\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Assets\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Assets\bootstrap\js\bootstrap.js" />
+    <Content Include="Assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\glyphicons-halflings-white.png" />
+    <Content Include="Images\glyphicons-halflings.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Scripts\fancybox2\blank.gif" />
+    <Content Include="Scripts\fancybox2\fancybox_loading%402x.gif" />
+    <Content Include="Scripts\fancybox2\fancybox_loading.gif" />
+    <Content Include="Scripts\fancybox2\fancybox_overlay.png" />
+    <Content Include="Scripts\fancybox2\fancybox_sprite%402x.png" />
+    <Content Include="Scripts\fancybox2\fancybox_sprite.png" />
+    <Content Include="Scripts\fancybox2\helpers\fancybox_buttons.png" />
+    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-media.js" />
+    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\fancybox2\jquery-1.10.1.min.js" />
+    <Content Include="Scripts\fancybox2\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\fancybox2\jquery.fancybox.css" />
+    <Content Include="Scripts\fancybox2\jquery.fancybox.js" />
+    <Content Include="Scripts\fancybox2\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\fancybox2\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Scripts\fancybox\blank.gif" />
+    <Content Include="Scripts\fancybox\fancybox-x.png" />
+    <Content Include="Scripts\fancybox\fancybox-y.png" />
+    <Content Include="Scripts\fancybox\fancybox.png" />
+    <Content Include="Scripts\fancybox\fancy_close.png" />
+    <Content Include="Scripts\fancybox\fancy_loading.png" />
+    <Content Include="Scripts\fancybox\fancy_nav_left.png" />
+    <Content Include="Scripts\fancybox\fancy_nav_right.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_e.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_n.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_s.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_se.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_w.png" />
+    <Content Include="Scripts\fancybox\fancy_title_left.png" />
+    <Content Include="Scripts\fancybox\fancy_title_main.png" />
+    <Content Include="Scripts\fancybox\fancy_title_over.png" />
+    <Content Include="Scripts\fancybox\fancy_title_right.png" />
+    <Content Include="Scripts\fancybox\jquery.easing-1.3.pack.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox-1.3.4.css" />
+    <Content Include="Scripts\fancybox\jquery.fancybox-1.3.4.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Scripts\fancybox\jquery.mousewheel-3.0.4.pack.js" />
+    <Content Include="Scripts\fancybox\style.css" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\page.js" />
+    <Content Include="Scripts\uploader.js" />
+    <Content Include="Styles\bootstrap-ie6.css" />
+    <Content Include="Styles\bootstrap-ie6.min.css" />
+    <Content Include="Styles\bootstrap-image-gallery.css" />
+    <Content Include="Styles\bootstrap-image-gallery.min.css" />
+    <Content Include="Styles\bootstrap-responsive.css" />
+    <Content Include="Styles\bootstrap-responsive.min.css" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\dashboard.css" />
+    <Content Include="Styles\layout.css" />
+    <Content Include="Styles\manage.css" />
+    <Content Include="Styles\upload.css" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\Map.aspx" />
+    <Content Include="Views\Photos\Edit.aspx" />
+    <Content Include="Views\Manage\Error.aspx" />
+    <Content Include="Views\Manage\Index.aspx" />
+    <Content Include="Views\User\Index.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handler\fileupload.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Profile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\fancybox\.svn\all-wcprops" />
+    <Content Include="Scripts\fancybox\.svn\entries" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\blank.gif.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancybox-x.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancybox-y.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancybox.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_close.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_loading.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_nav_left.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_nav_right.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_e.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_n.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_ne.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_nw.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_s.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_se.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_sw.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_w.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_title_left.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_title_main.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_title_over.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_title_right.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\prop-base\Thumbs.db.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\blank.gif.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancybox-x.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancybox-y.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancybox.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_close.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_loading.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_nav_left.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_nav_right.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_e.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_n.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_ne.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_nw.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_s.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_se.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_sw.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_w.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_title_left.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_title_main.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_title_over.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\fancy_title_right.png.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\jquery.easing-1.3.pack.js.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\jquery.fancybox-1.3.4.css.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\jquery.fancybox-1.3.4.js.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\jquery.fancybox-1.3.4.pack.js.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\jquery.mousewheel-3.0.4.pack.js.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\style.css.svn-base" />
+    <Content Include="Scripts\fancybox\.svn\text-base\Thumbs.db.svn-base" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Manage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handler\map_data.ashx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54558</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50190/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

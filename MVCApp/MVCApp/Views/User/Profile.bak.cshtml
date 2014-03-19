@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/Styles/layout.css" type="text/css" />
+    <script type="text/javascript" src="/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="/Scripts/page.js"></script>
+</head>
+<body>
+    <h2>Profile</h2>
+    <div>
+        @using(Html.BeginForm("Update","User",FormMethod.Post))
+        {
+@*        @RenderBody()*@
+        <p>
+            <label for="Name">Name:</label>
+            @Html.LabelFor(m=>m.Name)
+        </p>
+        <p>
+            <label for="Pwd">Password:</label>
+            @Html.TextBoxFor(m => m.Pwd)
+        </p>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Manage.master.cs" Inherits="MVCApp.Views.Shared.Manage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <asp:ContentPlaceHolder ID="TitleContent" runat="server">
+    <title></title>
+    </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="/Styles/dashboard.css" type="text/css" />
+    <link rel="stylesheet" href="/Styles/upload.css" type="text/css" />
+    <script type="text/javascript" src="/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="/Scripts/uploader.js"></script>
+    <asp:ContentPlaceHolder ID="ScriptContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">walkingp</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+        <%--<%if (!string.IsNullOrEmpty(ViewData["CurrentUserName"].ToString()))
+                { %>
+                    <a href="/User/Profile/" title="<%=ViewData["CurrentUserName"].ToString() %>"><%=ViewData["CurrentUserName"].ToString() %></a>
+            |
+            <a href="/User/Logout/" title="Login out">Login out</a>
+            <%}else{ %>
+            <a href="/User/" title="Login">Login in</a>
+            <%} %>--%>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Export</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <asp:ContentPlaceHolder ID="placeHolderMain" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

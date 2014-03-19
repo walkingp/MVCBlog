@@ -1,0 +1,14 @@
+﻿body{ font-size:14px; color:#333; width:800px; margin:0 auto;}
+table{ border-collapse:collapse; width:100%;}
+th,td{ border:solid 1px #ccc; padding:5px;}
+th{ background-color:#ddd;}
+.right{ float:right;}
+.font12{ font-size:12px;}
+.gray{ color:gray;}
+.normal{ font-weight:normal; font-style:normal;}
+.page{ line-height:3;}
+.page a{ border:solid 1px #ccc; padding:5px 10px; margin-right:4px;}
+.page a:hover{ background:#ddd;}
+.page a.current{ background:#ddd;}
+a{ color:#087989; text-decoration:none;}
+a:hover{ text-decoration:underline;}

@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+@model MVCApp.Models.Users
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="/Styles/layout.css" type="text/css" />
+    <script type="text/javascript" src="/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="/Scripts/page.js"></script>
+</head>
+<body>
+    <h2>Profile</h2>
+    @ViewData["message"].ToString()
+    <div>
+        @using(Html.BeginForm("Update","User",FormMethod.Post))
+        {
+        <p>
+            <label for="Name">Name:</label>
+            @Html.HiddenFor(model=>Model.Name)
+            @Model.Name
+        </p>
+        <p>
+            <label for="Pwd">Password:</label>
+            @Html.PasswordFor(model => model.Pwd, new { placeholder = "New Password" })
+        </p>
+        <p>
+            @Html.HiddenFor( model =>model.Role)
+            @Html.HiddenFor(model=>model.Id)
+            <input type="submit" value="Save" /> <a href="/Home/" title="Back home">Back home</a>
+        </p>
+        }
+    </div>
+</body>
+</html>

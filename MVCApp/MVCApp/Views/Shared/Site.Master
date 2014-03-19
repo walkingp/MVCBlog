@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MVCApp.Views.Shared.Site" %>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<![endif]-->
+<meta charset="utf-8">
+<title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+<meta name="description" content="Bootstrap Image Gallery is an extension to the Modal dialog of Twitter's Bootstrap toolkit, to ease navigation between a set of gallery images. It features mouse and keyboard navigation, transition effects, fullscreen mode and slideshow functionality.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/Styles/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="/Styles/bootstrap-responsive.css" type="text/css" />
+<!--[if lt IE 7]><link rel="stylesheet" href="/Styles/bootstrap-ie6.css"><![endif]-->
+<link rel="stylesheet" href="/Styles/bootstrap-image-gallery.css" type="text/css" />
+<link rel="stylesheet" href="/Styles/layout.css" type="text/css" />
+<script type="text/javascript" src="/Scripts/fancybox2/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/Scripts/fancybox2/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="/Scripts/fancybox2/jquery.fancybox.js"></script>
+<link rel="stylesheet" type="text/css" href="/Scripts/fancybox2/jquery.fancybox.css" media="screen" />
+<asp:ContentPlaceHolder ID="ScriptContent" runat="server">
+
+</asp:ContentPlaceHolder>
+</head>
+<body>
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li><a class="brand" href="http://walkingp.com/">返回walkingp's blog</a></li>
+                    <li><a class="brand" href="http://walkingp.com/album/map.html">切换到地图浏览</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+</body> 
+</html>
