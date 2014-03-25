@@ -12,18 +12,61 @@ namespace MVCApp.Controllers
 {
     public class ManageController : BaseController
     {
-        public ActionResult Index(string message, int? page)
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult AddBlog()
+        {
+            return View();
+        }
+        public ActionResult EditBlog(int? id)
+        {
+            if (id.HasValue)
+            {
+                Blog p = BlogService.Get(id.Value);
+                if (p == null)
+                {
+                    return View("Error");
+                }
+                ViewData["Edit"] = p;
+
+                return View(p);
+            }
+            return null;
+        }
+        public ActionResult Blog(int? page)
         {
             int pageIndex = 1;
             if (page.HasValue)
             {
                 pageIndex =(int) page;
             }
+            List<Blog> list = new List<Blog>();
+            list = BlogService.GetBlogsByPage(pageIndex);
+            ViewData["Blog"] = list;
+
+            Pager pager = new Pager { PageCount = BlogService.GetBlogsCount() / Config.PageSize + 1, Url = "/Manage/Blog/Page/", PageIndex = pageIndex };
+            string html = pager.ShowPageHtml();
+            ViewData["html"] = html;
+            ViewData["CurrentUserName"] = base.CurrentUserName;
+
+            return View();
+        }
+        public ActionResult Gallery(string message, int? page)
+        {
+            int pageIndex = 1;
+            int pageSize = 60;
+            if (page.HasValue)
+            {
+                pageIndex =(int) page;
+            }
             List<Photos> list = new List<Photos>();
-            list = PhotoService.GetPhotosByPage(pageIndex);
+
+            list = PhotoService.GetPhotosByPage(pageIndex, pageSize);
             ViewData["Photos"] = list;
 
-            Pager pager = new Pager { PageCount = PhotoService.GetPhotosCount()/Config.PageSize +1, Url = "/Home/Page/", PageIndex = pageIndex };
+            Pager pager = new Pager { PageCount = PhotoService.GetPhotosCount() / pageSize + 1, Url = "/Manage/Gallery/Page/", PageIndex = pageIndex };
             string html = pager.ShowPageHtml();
             ViewData["html"] = html;
             ViewData["Message"] = string.IsNullOrEmpty(message) ? "" : message;
@@ -32,12 +75,13 @@ namespace MVCApp.Controllers
             return View();
         }
         [ActionName("Create"),AcceptVerbs("POST")]
-        public ActionResult SavePeople()
+        public ActionResult SavePhoto()
         {
+            string folderString = "/album/photos/";
             Photos p = new Photos();
-            p.Title = Request["pName"];
+            p.Title = Request["Title"];
             string hPhoto = Request["hPhoto"];
-            string folder = HttpContext.Server.MapPath("~/upload");
+            string folder = HttpContext.Server.MapPath("~/album/photos/");
             if (string.IsNullOrEmpty(hPhoto))
             {
                 HttpPostedFileBase file = Request.Files["photo"];
@@ -50,7 +94,7 @@ namespace MVCApp.Controllers
                     string filePath = Path.Combine(folder, Path.GetFileName(file.FileName));
                     file.SaveAs(filePath);
 
-                    p.Path = "/upload/" + Path.GetFileName(file.FileName);
+                    p.Path = folderString + Path.GetFileName(file.FileName);
                 }
             }
             else
@@ -75,8 +119,8 @@ namespace MVCApp.Controllers
             p.UserId = CurrentUserId;
             p.PostTime = DateTime.Now;
 
-            string smallThumbPath = Server.MapPath(Path.Combine("/upload", "s", Path.GetFileName(fullPath)));
-            string mediumThumbPath = Server.MapPath(Path.Combine("/upload", "m", Path.GetFileName(fullPath)));
+            string smallThumbPath = Server.MapPath(Path.Combine(folderString, "s", Path.GetFileName(fullPath)));
+            string mediumThumbPath = Server.MapPath(Path.Combine(folderString, "m", Path.GetFileName(fullPath)));
             ImageHelper.MakeThumNail(fullPath, smallThumbPath, 106, 80, "HW");
             ImageHelper.MakeThumNail(fullPath, mediumThumbPath, 600, 600, "HW");
 
@@ -95,10 +139,10 @@ namespace MVCApp.Controllers
             ViewData["Photos"] = PhotoService.GetPhotosByPage(1);
             ViewData["Message"] = "";
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Edit", "Photos", new { Message = ViewData["Message"] });
         }
         [ActionName("Delete"),AcceptVerbs("GET")]
-        public ActionResult RemovePeople(int id)
+        public ActionResult RemovePhoto(int id)
         {
             ViewData["Message"] = "";
             Photos p = PhotoService.Get(id);
@@ -114,7 +158,7 @@ namespace MVCApp.Controllers
             {
                 ViewData["Message"] = "Parameter errors";
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Gallery");
         }
     }
 }

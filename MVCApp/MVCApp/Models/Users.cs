@@ -171,11 +171,11 @@ namespace MVCApp.Models
                 }
                 HttpCookie cookie = HttpContext.Current.Request.Cookies[".ASPXAUTH"];
 
-                string[] dataArr = ((System.Web.Security.FormsIdentity)HttpContext.User.Identity).Ticket.UserData.Split('|');
-                if (dataArr != null && dataArr.Length == 2)
-                {
-                    return int.Parse(dataArr[0]);
-                }
+                //string[] dataArr = ((System.Web.Security.FormsIdentity)HttpContext.User.Identity).Ticket.UserData.Split('|');
+                //if (dataArr != null && dataArr.Length == 2)
+                //{
+                //    return int.Parse(dataArr[0]);
+                //}
                 return 0;
             }
         }

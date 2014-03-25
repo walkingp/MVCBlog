@@ -11,9 +11,9 @@ namespace MVCApp.Utility
 {
     public class ImageHelper
     {
-        public static string GetThumbImagePath(string path)
+        public static string GetThumbImagePath(string path,string type)
         {
-            return path.Replace(Path.GetFileName(path), "s/" + Path.GetFileName(path));
+            return path.Replace(Path.GetFileName(path),type + "/" + Path.GetFileName(path));
         }
 
         /// <summary>

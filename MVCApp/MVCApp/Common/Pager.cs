@@ -57,16 +57,32 @@ namespace MVCApp.Common
         public string ShowPageHtml()
         {
             StringBuilder sb = new StringBuilder();
+            if (PageIndex == 1)
+            {
+                sb.Append(string.Format(@"<li class=""disabled""><a href=""{0}{1}"">&laquo;</a></li>", Url, 1));
+            }
+            else
+            {
+                sb.Append(string.Format(@"<li><a href=""{0}{1}"">&laquo;</a></li>", Url, PageIndex - 1));
+            }
             for (int i = 1; i <= PageCount; i++)
             {
                 if (i == PageIndex)
                 {
-                    sb.Append(string.Format(@"<a href=""{0}{1}"" class=""current"" title="""">{1}</a>", Url, i));
+                    sb.Append(string.Format(@"<li class=""active""><a href=""{0}{1}"" title="""">{1}</a></li>", Url, i));
                 }
                 else
                 {
-                    sb.Append(string.Format(@"<a href=""{0}{1}"" title="""">{1}</a>", Url, i));
+                    sb.Append(string.Format(@"<li><a href=""{0}{1}"" title="""">{1}</a></li>", Url, i));
                 }
+            }
+            if (PageIndex == PageCount)
+            {
+                sb.Append(string.Format(@"<li class=""disabled""><a href=""{0}{1}"">&raquo;</a></li>", Url, PageCount));
+            }
+            else
+            {
+                sb.Append(string.Format(@"<li><a href=""{0}{1}"">&raquo;</a></li>", Url, PageIndex + 1));
             }
 
             return sb.ToString();

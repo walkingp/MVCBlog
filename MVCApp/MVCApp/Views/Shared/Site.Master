@@ -7,39 +7,56 @@
 <![endif]-->
 <meta charset="utf-8">
 <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-<meta name="description" content="Bootstrap Image Gallery is an extension to the Modal dialog of Twitter's Bootstrap toolkit, to ease navigation between a set of gallery images. It features mouse and keyboard navigation, transition effects, fullscreen mode and slideshow functionality.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/Styles/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="/Styles/bootstrap-responsive.css" type="text/css" />
-<!--[if lt IE 7]><link rel="stylesheet" href="/Styles/bootstrap-ie6.css"><![endif]-->
-<link rel="stylesheet" href="/Styles/bootstrap-image-gallery.css" type="text/css" />
-<link rel="stylesheet" href="/Styles/layout.css" type="text/css" />
-<script type="text/javascript" src="/Scripts/fancybox2/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="/Scripts/fancybox2/jquery.mousewheel-3.0.6.pack.js"></script>
-<script type="text/javascript" src="/Scripts/fancybox2/jquery.fancybox.js"></script>
-<link rel="stylesheet" type="text/css" href="/Scripts/fancybox2/jquery.fancybox.css" media="screen" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="/Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+<link href="/Assets/layout/blog.css" rel="stylesheet" media="screen" />
+<link rel="stylesheet" href="/Assets/layout/gallery.css" type="text/css" />
+<script type="text/javascript" src="/Assets/fancybox2/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/Assets/fancybox2/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="/Assets/fancybox2/jquery.fancybox.js"></script>
+<script type="text/javascript" src="/Assets/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/Assets/fancybox2/jquery.fancybox.css" media="screen" />
 <asp:ContentPlaceHolder ID="ScriptContent" runat="server">
 
 </asp:ContentPlaceHolder>
 </head>
 <body>
-<div class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <div class="nav-collapse">
-                <ul class="nav">
-                    <li><a class="brand" href="http://walkingp.com/">返回walkingp's blog</a></li>
-                    <li><a class="brand" href="http://walkingp.com/album/map.html">切换到地图浏览</a></li>
-                </ul>
-            </div>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">WALKINGP's blog</a>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/Gallery/">Gallery</a></li>
+            <li><a href="/About">About</a></li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">My project <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/cnblogs/">Cnblogs Android</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="/Gallery/" class="dropdown-toggle" data-toggle="dropdown">View Mode <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/Gallery/">List</a></li>
+                    <li><a href="/Gallery/Map/">Map</a></li>
+                </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
-</div>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 </body> 
 </html>

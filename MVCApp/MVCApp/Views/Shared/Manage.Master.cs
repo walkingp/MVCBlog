@@ -9,9 +9,14 @@ namespace MVCApp.Views.Shared
 {
     public partial class Manage : System.Web.UI.MasterPage
     {
+        public int NavBarIndex { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             
+        }
+        protected string GetSelected(int index)
+        {
+            return NavBarIndex.Equals(index) ? @" class=""active""" : "";
         }
     }
 }

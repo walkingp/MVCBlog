@@ -26,27 +26,41 @@ namespace MVCApp.Controllers
             {
                 return View("Error");
             }
-            p.Title = Request["pName"];
+            p.Title = Request["Title"];
+            string folder = HttpContext.Server.MapPath("~/album/photos/");
             HttpPostedFileBase file = Request.Files["photo"];
-            if (file != null)
+            if (file.ContentLength > 0)
             {
-                string folder = HttpContext.Server.MapPath("~/upload");
                 if (!Directory.Exists(folder))
                 {
                     Directory.CreateDirectory(folder);
                 }
                 string filePath = Path.Combine(folder, Path.GetFileName(file.FileName));
                 file.SaveAs(filePath);
-                p.Path = "/upload/" + Path.GetFileName(file.FileName);
+                p.Path = "/album/photos/" + Path.GetFileName(file.FileName);
             }
-
+            p.Altitude = Request["Altitude"];
+            p.Aperture = Request["Aperture"];
+            p.Camera = Request["Camera"];
+            p.CaptureTime = Request["CaptureTime"];
+            p.Exposure = Request["Exposure"];
+            p.Focal = Request["Focal"];
+            p.ISO = Request["ISO"];
+            p.Latitude = Request["Latitude"];
+            p.LongLatitude = Request["LongLatitude"];
+            p.Manufacturer = Request["Manufacturer"];
+            p.Location = Request["Location"];            
 
             ViewData["Edit"] = p;
             ViewData["Message"] = "Updated succesully";
             bool isSucc = PhotoService.Update(p);
 
-            return RedirectToAction("Index", "Manage", new { Message = ViewData["Message"] });
+            return RedirectToAction("Gallery", "Manage", new { Message = ViewData["Message"] });
             //return View("Index");
+        }
+        public ActionResult Add()
+        {
+            return View();
         }
         public ActionResult Edit(int? id)
         {
@@ -63,7 +77,6 @@ namespace MVCApp.Controllers
             }
             return null;
         }
-
     }
 }
 

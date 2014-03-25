@@ -122,7 +122,9 @@
     <Compile Include="Common\Pager.cs" />
     <Compile Include="Common\SQLiteHelper.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PhotosController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -137,6 +139,7 @@
       <DependentUpon>map_data.ashx</DependentUpon>
     </Compile>
     <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\ExifInfo.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Photos.cs" />
@@ -145,6 +148,13 @@
     <Compile Include="Utility\GoogleMapHelper.cs" />
     <Compile Include="Utility\ImageHelper.cs" />
     <Compile Include="Utility\NetHelper.cs" />
+    <Compile Include="Views\Shared\Blog.Master.cs">
+      <DependentUpon>Blog.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Blog.Master.designer.cs">
+      <DependentUpon>Blog.Master</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\Manage.Master.cs">
       <DependentUpon>Manage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,82 +174,62 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Assets\bootstrap\css\bootstrap-responsive.css" />
-    <Content Include="Assets\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Assets\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Assets\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Assets\bootstrap\css\bootstrap.css" />
     <Content Include="Assets\bootstrap\css\bootstrap.min.css" />
-    <Content Include="Assets\bootstrap\img\glyphicons-halflings-white.png" />
-    <Content Include="Assets\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\bootstrap\js\bootstrap.js" />
     <Content Include="Assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\fancybox2\blank.gif" />
+    <Content Include="Assets\fancybox2\fancybox_loading%402x.gif" />
+    <Content Include="Assets\fancybox2\fancybox_loading.gif" />
+    <Content Include="Assets\fancybox2\fancybox_overlay.png" />
+    <Content Include="Assets\fancybox2\fancybox_sprite%402x.png" />
+    <Content Include="Assets\fancybox2\fancybox_sprite.png" />
+    <Content Include="Assets\fancybox2\helpers\fancybox_buttons.png" />
+    <Content Include="Assets\fancybox2\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Assets\fancybox2\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Assets\fancybox2\helpers\jquery.fancybox-media.js" />
+    <Content Include="Assets\fancybox2\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Assets\fancybox2\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Assets\fancybox2\jquery-1.10.1.min.js" />
+    <Content Include="Assets\fancybox2\jquery-1.9.0.min.js" />
+    <Content Include="Assets\fancybox2\jquery.fancybox.css" />
+    <Content Include="Assets\fancybox2\jquery.fancybox.js" />
+    <Content Include="Assets\fancybox2\jquery.fancybox.pack.js" />
+    <Content Include="Assets\fancybox2\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Assets\layout\blog.css" />
+    <Content Include="Assets\layout\manage.css" />
+    <Content Include="Assets\masonry\masonry.pkgd.min.js" />
+    <Content Include="Assets\script\page.js" />
+    <Content Include="Assets\script\uploader.js" />
+    <Content Include="Assets\summernote\summernote-bs2.css" />
+    <Content Include="Assets\summernote\summernote-bs3.css" />
+    <Content Include="Assets\summernote\summernote.css" />
+    <Content Include="Assets\summernote\summernote.js" />
+    <Content Include="Assets\summernote\summernote.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bio-photo.jpg" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="Images\loading.gif" />
-    <Content Include="Scripts\fancybox2\blank.gif" />
-    <Content Include="Scripts\fancybox2\fancybox_loading%402x.gif" />
-    <Content Include="Scripts\fancybox2\fancybox_loading.gif" />
-    <Content Include="Scripts\fancybox2\fancybox_overlay.png" />
-    <Content Include="Scripts\fancybox2\fancybox_sprite%402x.png" />
-    <Content Include="Scripts\fancybox2\fancybox_sprite.png" />
-    <Content Include="Scripts\fancybox2\helpers\fancybox_buttons.png" />
-    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-buttons.css" />
-    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-buttons.js" />
-    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-media.js" />
-    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-thumbs.css" />
-    <Content Include="Scripts\fancybox2\helpers\jquery.fancybox-thumbs.js" />
-    <Content Include="Scripts\fancybox2\jquery-1.10.1.min.js" />
-    <Content Include="Scripts\fancybox2\jquery-1.9.0.min.js" />
-    <Content Include="Scripts\fancybox2\jquery.fancybox.css" />
-    <Content Include="Scripts\fancybox2\jquery.fancybox.js" />
-    <Content Include="Scripts\fancybox2\jquery.fancybox.pack.js" />
-    <Content Include="Scripts\fancybox2\jquery.mousewheel-3.0.6.pack.js" />
-    <Content Include="Scripts\fancybox\blank.gif" />
-    <Content Include="Scripts\fancybox\fancybox-x.png" />
-    <Content Include="Scripts\fancybox\fancybox-y.png" />
-    <Content Include="Scripts\fancybox\fancybox.png" />
-    <Content Include="Scripts\fancybox\fancy_close.png" />
-    <Content Include="Scripts\fancybox\fancy_loading.png" />
-    <Content Include="Scripts\fancybox\fancy_nav_left.png" />
-    <Content Include="Scripts\fancybox\fancy_nav_right.png" />
-    <Content Include="Scripts\fancybox\fancy_shadow_e.png" />
-    <Content Include="Scripts\fancybox\fancy_shadow_n.png" />
-    <Content Include="Scripts\fancybox\fancy_shadow_ne.png" />
-    <Content Include="Scripts\fancybox\fancy_shadow_nw.png" />
-    <Content Include="Scripts\fancybox\fancy_shadow_s.png" />
-    <Content Include="Scripts\fancybox\fancy_shadow_se.png" />
-    <Content Include="Scripts\fancybox\fancy_shadow_sw.png" />
-    <Content Include="Scripts\fancybox\fancy_shadow_w.png" />
-    <Content Include="Scripts\fancybox\fancy_title_left.png" />
-    <Content Include="Scripts\fancybox\fancy_title_main.png" />
-    <Content Include="Scripts\fancybox\fancy_title_over.png" />
-    <Content Include="Scripts\fancybox\fancy_title_right.png" />
-    <Content Include="Scripts\fancybox\jquery.easing-1.3.pack.js" />
-    <Content Include="Scripts\fancybox\jquery.fancybox-1.3.4.css" />
-    <Content Include="Scripts\fancybox\jquery.fancybox-1.3.4.js" />
-    <Content Include="Scripts\fancybox\jquery.fancybox-1.3.4.pack.js" />
-    <Content Include="Scripts\fancybox\jquery.mousewheel-3.0.4.pack.js" />
-    <Content Include="Scripts\fancybox\style.css" />
-    <Content Include="Scripts\jquery.js" />
-    <Content Include="Scripts\page.js" />
-    <Content Include="Scripts\uploader.js" />
-    <Content Include="Styles\bootstrap-ie6.css" />
-    <Content Include="Styles\bootstrap-ie6.min.css" />
-    <Content Include="Styles\bootstrap-image-gallery.css" />
-    <Content Include="Styles\bootstrap-image-gallery.min.css" />
-    <Content Include="Styles\bootstrap-responsive.css" />
-    <Content Include="Styles\bootstrap-responsive.min.css" />
-    <Content Include="Styles\bootstrap.css" />
-    <Content Include="Styles\bootstrap.min.css" />
-    <Content Include="Styles\dashboard.css" />
-    <Content Include="Styles\layout.css" />
-    <Content Include="Styles\manage.css" />
-    <Content Include="Styles\upload.css" />
-    <Content Include="Views\Home\Index.aspx" />
-    <Content Include="Views\Home\Map.aspx" />
+    <Content Include="Assets\layout\dashboard.css" />
+    <Content Include="Assets\layout\gallery.css" />
+    <Content Include="Assets\layout\upload.css" />
+    <Content Include="Views\Blog\Index.aspx" />
+    <Content Include="Views\Blog\View.aspx" />
+    <Content Include="Views\Gallery\Index.aspx" />
+    <Content Include="Views\Gallery\Map.aspx" />
+    <Content Include="Views\Manage\AddBlog.aspx" />
+    <Content Include="Views\Manage\Blog.aspx" />
+    <Content Include="Views\Manage\EditBlog.aspx" />
+    <Content Include="Views\Manage\Index.aspx" />
+    <Content Include="Views\Page\About.aspx" />
+    <Content Include="Views\Photos\Add.aspx" />
     <Content Include="Views\Photos\Edit.aspx" />
     <Content Include="Views\Manage\Error.aspx" />
-    <Content Include="Views\Manage\Index.aspx" />
+    <Content Include="Views\Manage\Gallery.aspx" />
     <Content Include="Views\User\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -269,62 +259,20 @@
     <Content Include="Views\Shared\Site.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\fancybox\.svn\all-wcprops" />
-    <Content Include="Scripts\fancybox\.svn\entries" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\blank.gif.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancybox-x.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancybox-y.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancybox.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_close.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_loading.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_nav_left.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_nav_right.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_e.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_n.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_ne.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_nw.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_s.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_se.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_sw.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_shadow_w.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_title_left.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_title_main.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_title_over.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\fancy_title_right.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\prop-base\Thumbs.db.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\blank.gif.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancybox-x.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancybox-y.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancybox.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_close.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_loading.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_nav_left.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_nav_right.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_e.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_n.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_ne.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_nw.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_s.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_se.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_sw.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_shadow_w.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_title_left.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_title_main.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_title_over.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\fancy_title_right.png.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\jquery.easing-1.3.pack.js.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\jquery.fancybox-1.3.4.css.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\jquery.fancybox-1.3.4.js.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\jquery.fancybox-1.3.4.pack.js.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\jquery.mousewheel-3.0.4.pack.js.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\style.css.svn-base" />
-    <Content Include="Scripts\fancybox\.svn\text-base\Thumbs.db.svn-base" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\Manage.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Handler\map_data.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Blog.Master" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
