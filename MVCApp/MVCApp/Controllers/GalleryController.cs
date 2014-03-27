@@ -34,5 +34,13 @@ namespace MVCApp.Controllers
         {
             return View();
         }
+
+        public ActionResult View(int id)
+        {
+            Photos photo = PhotoService.Get(id);
+            ViewData["Data"] = photo;
+
+            return View();
+        }
     }
 }

@@ -85,7 +85,6 @@ E:\项目\个人项目\MVCApp\MVCApp\bin\System.Web.WebPages.Razor.xml
 E:\项目\个人项目\MVCApp\MVCApp\obj\Debug\MVCApp.csprojResolveAssemblyReference.cache
 E:\项目\个人项目\MVCApp\MVCApp\obj\Debug\MVCApp.dll
 E:\项目\个人项目\MVCApp\MVCApp\obj\Debug\MVCApp.pdb
-E:\git\walkingp.com\MVCApp\MVCApp\obj\Debug\MVCApp.csprojResolveAssemblyReference.cache
 E:\git\walkingp.com\MVCApp\MVCApp\obj\Debug\MVCApp.dll
 E:\git\walkingp.com\MVCApp\MVCApp\bin\MVCApp.dll
 E:\git\walkingp.com\MVCApp\MVCApp\bin\MVCApp.pdb

@@ -13,6 +13,7 @@ namespace MVCApp.Controllers
 
         public ActionResult About()
         {
+            ViewData["Tab"] = 3;
             return View();
         }
 

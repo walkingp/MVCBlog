@@ -38,6 +38,8 @@
         height: auto;
         margin-bottom: 15px;
         padding: 7px 9px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
       }
 
     </style>

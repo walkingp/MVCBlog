@@ -221,6 +221,7 @@
     <Content Include="Views\Blog\View.aspx" />
     <Content Include="Views\Gallery\Index.aspx" />
     <Content Include="Views\Gallery\Map.aspx" />
+    <Content Include="Views\Gallery\View.aspx" />
     <Content Include="Views\Manage\AddBlog.aspx" />
     <Content Include="Views\Manage\Blog.aspx" />
     <Content Include="Views\Manage\EditBlog.aspx" />
@@ -273,6 +274,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Blog.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\blog.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

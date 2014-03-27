@@ -59,7 +59,6 @@
             <li<%=GetSelected(0) %>><a href="/manage/">Overview</a></li>
             <li<%=GetSelected(1) %>><a href="/Manage/Gallery/">Gallery</a></li>
             <li<%=GetSelected(2) %>><a href="/Manage/Blog/">Article</a></li>
-            <li<%=GetSelected(3) %>><a href="/Manage/Notes">Notes</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
