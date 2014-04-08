@@ -76,6 +76,15 @@ namespace MVCApp.Controllers
             BlogService.Update(blog);
             return RedirectToAction("Blog", "Manage");
         }
-
+        public ActionResult Delete(int Id)
+        {
+            Blog blog = BlogService.Get(Id);
+            if (blog == null)
+            {
+                return View();
+            }
+            BlogService.Delete(blog);
+            return RedirectToAction("Blog", "Manage");
+        }
     }
 }

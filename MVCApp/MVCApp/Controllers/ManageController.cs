@@ -74,12 +74,74 @@ namespace MVCApp.Controllers
 
             return View();
         }
+        public ActionResult Place(int? page)
+        {
+            int pageIndex = 1;
+            if (page.HasValue)
+            {
+                pageIndex = (int)page;
+            }
+            List<Place> list = PlaceService.GetAllPlaces();
+
+            Pager pager = new Pager { PageCount = PlaceService.GetPlacesCount() / Config.PageSize + 1, Url = "/Manage/Place/Page/", PageIndex = pageIndex };
+            string html = pager.ShowPageHtml();
+            ViewData["html"] = html;
+            return View(list);
+        }
+        public ActionResult AddPlace()
+        {
+            List<Place> list = PlaceService.GetAllPlaces();
+            ViewData["list"] = list;
+            return View();
+        }
+        public ActionResult EditPlace(int Id)
+        {
+            Place p = PlaceService.Get(Id);
+            return View(p);
+        }
+        public ActionResult SavePlace()
+        {
+            Place p = new Place
+            {
+                LongLati = Request["LongLati"],
+                Lati = Request["Lati"],
+                Location = Request["Location"],
+                Notes = Request["Notes"],
+                Date = DateTime.Parse(Request["Date"]),
+                Star=Convert.ToInt64(Request["Star"])
+            };
+            PlaceService.Add(p);
+            return RedirectToAction("Place", "Manage");
+        }
+        public ActionResult UpdatePlace()
+        {
+            int id=0;
+            int.TryParse(Request["Id"],out id);
+            Place p = PlaceService.Get(id);
+            p.LongLati = Request["LongLati"];
+            p.Lati = Request["Lati"];
+            p.Location = Request["Location"];
+            p.Notes = Request["Notes"];
+            p.Date = DateTime.Parse(Request["Date"]);
+            p.Star = Convert.ToInt64(Request["Star"]);
+            PlaceService.Update(p);
+            return RedirectToAction("Place", "Manage");
+        }
+        public ActionResult DeletePlace(int Id)
+        {
+            Place p = PlaceService.Get(Id);
+            if (p != null)
+            {
+                PlaceService.Delete(p);
+            }
+            return RedirectToAction("Place", "Manage");
+        }
         [ActionName("Create"),AcceptVerbs("POST")]
         public ActionResult SavePhoto()
         {
             string folderString = "/album/photos/";
             Photos p = new Photos();
-            p.Title = Request["Title"];
+            p.Title = Request["pName"];
             string hPhoto = Request["hPhoto"];
             string folder = HttpContext.Server.MapPath("~/album/photos/");
             if (string.IsNullOrEmpty(hPhoto))
@@ -139,7 +201,7 @@ namespace MVCApp.Controllers
             ViewData["Photos"] = PhotoService.GetPhotosByPage(1);
             ViewData["Message"] = "";
 
-            return RedirectToAction("Edit", "Photos", new { Message = ViewData["Message"] });
+            return RedirectToAction("Edit", "Photos", new { id = result.Id });
         }
         [ActionName("Delete"),AcceptVerbs("GET")]
         public ActionResult RemovePhoto(int id)

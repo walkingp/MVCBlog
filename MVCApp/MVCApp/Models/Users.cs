@@ -22,6 +22,7 @@ namespace MVCApp.Models
         static string ConnectionString = Config.ConnectionString;
         public static Users Login(string name, string pwd)
         {
+            pwd = EncryptPwd(pwd);
             string where = "Name=@Name and Pwd=@Pwd";
             SQLiteParameter[] param ={
                                          new SQLiteParameter("@Name",DbType.String,50),
@@ -88,7 +89,7 @@ namespace MVCApp.Models
                 new SQLiteParameter("@role",DbType.Int64,16)
             };
             param[0].Value = user.Name;
-            param[1].Value = user.Pwd;
+            param[1].Value = EncryptPwd(user.Pwd);
             param[2].Value =(int) user.Role;
             using (SQLiteConnection conn = new SQLiteConnection(ConnectionString))
             {
@@ -122,7 +123,7 @@ namespace MVCApp.Models
                 new SQLiteParameter("@Id",DbType.Int64,16)
             };
             param[0].Value = user.Name;
-            param[1].Value = user.Pwd;
+            param[1].Value =EncryptPwd(user.Pwd);
             param[2].Value =(int) user.Role;
             param[3].Value = user.Id;
             using (SQLiteConnection conn = new SQLiteConnection(ConnectionString))
@@ -178,6 +179,11 @@ namespace MVCApp.Models
                 //}
                 return 0;
             }
+        }
+        private static string EncryptPwd(string password)
+        {
+            password = FormsAuthentication.HashPasswordForStoringInConfigFile(password, "MD5").Substring(8, 16);
+            return password;
         }
     }
     public enum EnumRole

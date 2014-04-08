@@ -128,6 +128,7 @@
     <Compile Include="Controllers\PhotosController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PlaceController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -138,11 +139,15 @@
     <Compile Include="Handler\map_data.ashx.cs">
       <DependentUpon>map_data.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handler\place_data.ashx.cs">
+      <DependentUpon>place_data.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\ExifInfo.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Photos.cs" />
+    <Compile Include="Models\Place.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\GoogleMapHelper.cs" />
@@ -174,6 +179,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Assets\bootstrap-datepicker\bootstrap-datetimepicker.css" />
+    <Content Include="Assets\bootstrap-datepicker\bootstrap-datetimepicker.js" />
+    <Content Include="Assets\bootstrap-datepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Assets\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Assets\bootstrap-datepicker\bootstrap-datetimepicker.zh-CN.js" />
     <Content Include="Assets\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Assets\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Assets\bootstrap\css\bootstrap.css" />
@@ -199,6 +209,9 @@
     <Content Include="Assets\fancybox2\jquery.fancybox.js" />
     <Content Include="Assets\fancybox2\jquery.fancybox.pack.js" />
     <Content Include="Assets\fancybox2\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Assets\jquery.lazyload\ajax-loading.gif" />
+    <Content Include="Assets\jquery.lazyload\jquery.lazyload.js" />
+    <Content Include="Assets\jquery.lazyload\jquery.lazyload.min.js" />
     <Content Include="Assets\layout\blog.css" />
     <Content Include="Assets\layout\manage.css" />
     <Content Include="Assets\masonry\masonry.pkgd.min.js" />
@@ -225,12 +238,16 @@
     <Content Include="Views\Manage\AddBlog.aspx" />
     <Content Include="Views\Manage\Blog.aspx" />
     <Content Include="Views\Manage\EditBlog.aspx" />
+    <Content Include="Views\Manage\EditPlace.aspx" />
     <Content Include="Views\Manage\Index.aspx" />
+    <Content Include="Views\Manage\AddPlace.aspx" />
+    <Content Include="Views\Manage\Place.aspx" />
     <Content Include="Views\Page\About.aspx" />
     <Content Include="Views\Photos\Add.aspx" />
     <Content Include="Views\Photos\Edit.aspx" />
     <Content Include="Views\Manage\Error.aspx" />
     <Content Include="Views\Manage\Gallery.aspx" />
+    <Content Include="Views\Place\Index.aspx" />
     <Content Include="Views\User\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -276,6 +293,7 @@
     <Content Include="Views\Shared\Blog.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Handler\place_data.ashx" />
     <None Include="Properties\PublishProfiles\blog.pubxml" />
   </ItemGroup>
   <PropertyGroup>

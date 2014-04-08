@@ -233,7 +233,7 @@ namespace MVCApp.Models
             param[15].Value = photo.AlbumId;
             param[16].Value = photo.PostTime;
             param[17].Value = photo.UserId;
-            param[17].Value = photo.Location;
+            param[18].Value = photo.Location;
             using (SQLiteConnection conn = new SQLiteConnection(ConnectionString))
             {
                 conn.Open();
